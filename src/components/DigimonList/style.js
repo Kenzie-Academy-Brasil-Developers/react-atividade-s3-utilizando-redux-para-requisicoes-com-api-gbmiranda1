@@ -18,3 +18,12 @@ export const Div = styled.div`
     }
 
 `;
+
+export const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    Div ~ Div{
+        margin-left: 10px;
+    }
+`;

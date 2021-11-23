@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import {Div} from "./style"
+import {Div, Container} from "./style"
 
 const DigimonList = () => {
   const {digimons} = useSelector((state) => state);
 
   return (
-    <div>
+    <Container>
       
         {
           digimons.map((digimon, index) =>(
@@ -17,7 +17,7 @@ const DigimonList = () => {
           ))
         }
 
-    </div>
+    </Container>
   )
   }
 

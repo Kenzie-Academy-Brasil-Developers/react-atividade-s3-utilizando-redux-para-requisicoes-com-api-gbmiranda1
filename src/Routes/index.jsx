@@ -3,11 +3,14 @@ import DigimonPage from "../Pages/DigimonPage"
 
 function Routes(){
     return(
-        <Switch>
-            <Route exact path="/">
-                <DigimonPage/>
-            </Route>
-        </Switch>
+        <>
+            <Switch>
+                <Route exact path="/">
+                    <DigimonPage/>
+                </Route>
+            </Switch>
+            
+        </>
     )
 }
 

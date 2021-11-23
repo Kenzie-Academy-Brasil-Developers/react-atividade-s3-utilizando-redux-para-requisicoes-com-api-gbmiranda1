@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import addDigimonsThunk from "../../store/modules/digimons/thunks";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { dark } from "@mui/material/styles/createPalette";
 
 const Search = () => {
     const [input, setInput] = useState("");
@@ -8,15 +11,31 @@ const Search = () => {
 
     const dispatch = useDispatch();
 
+        const notify = () => {
+            toast.error('Digimon não encontrado');
+        };
+
+
     const handleSearch = () => {
-        dispatch(addDigimonsThunk(input, setError))
+        dispatch(addDigimonsThunk(input, setError, notify))
         setError(false);
         setInput("");
-        
     };
 
+    
     return (
         <div>
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                theme={dark}
+                pauseOnHover
+            />
             <div>
                 <input
                     value={input}
@@ -28,6 +47,7 @@ const Search = () => {
                 <button onClick={handleSearch}>Pesquisar</button> 
         
             </div>
+            
         </div>
     );
 };
